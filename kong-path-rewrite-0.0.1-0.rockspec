@@ -1,14 +1,17 @@
 package = "kong-path-rewrite"
 version = "0.0.1-0"
 source = {
-   url = "https://github.com/jiladahe1997/kong-path-rewrite.git"
+   url = "git://github.com/jiladahe1997/kong-path-rewrite"
 }
 description = {
-   homepage = "hhttps://github.com/jiladahe1997/kong-path-rewrite",
+   homepage = "https://github.com/jiladahe1997/kong-path-rewrite",
    license = "*** please specify a license ***"
 }
 dependencies = {}
 build = {
    type = "builtin",
-   modules = {}
+   modules = {
+    ["kong.plugins.kong-plugin-url-rewrite.handler"] = "kong/plugins/kong-path-rewrite/handler.lua",
+    ["kong.plugins.kong-plugin-url-rewrite.schema"] = "kong/plugins/kong-path-rewrite/schema.lua"
+   }
 }
